@@ -1,0 +1,227 @@
+{
+    "info": {
+        "_postman_id": "b9627a7a-8d23-476d-bc31-7a6b97adb1d2",
+        "name": "articles-slack",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login (get an access-token)",
+            "_postman_id": "788d639d-dec7-40aa-9c78-711efe16f819",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"username\": \"anExampleValidUsername\",\n    \"password\" : \"anExampleValidPassword\"\n\n    \n}"
+                },
+                "url": "http:\/\/localhost:3000\/login"
+            },
+            "response": []
+        },
+        {
+            "name": "Create User",
+            "_postman_id": "9caa3fbd-5e5b-4cd3-92c7-bdb923f8081a",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"John Doe\",\n    \"avatar\" : \"http:\/\/anavatar.com\"\n}"
+                },
+                "url": "http:\/\/localhost:3000\/users"
+            },
+            "response": []
+        },
+        {
+            "name": "get User by id",
+            "_postman_id": "0690a5e5-22d7-4a37-ac69-492967716bb9",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "url": "http:\/\/localhost:3000\/users\/5fc5c0e467560159a1afe8e4"
+            },
+            "response": []
+        },
+        {
+            "name": "create Article",
+            "_postman_id": "09aa9b1d-b5ca-4658-990e-ce4d159f4c1c",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"World cup is coming soon\",\n    \"text\" : \"The workd cup is coming in two years\",\n    \"tags\" : [\"fans\", \"football\", \"sports\"],\n    \"userId\": \"5fc5d1606dc8d47795782ad6\"\n    \n    \n}"
+                },
+                "url": "http:\/\/localhost:3000\/articles"
+            },
+            "response": []
+        },
+        {
+            "name": "update Article",
+            "_postman_id": "8eef0233-2edd-48e8-8097-6b0d8084482c",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n   \"title\": \"World cup is coming soon\",\n    \"text\" : \"The workd cup is coming in a couple of years!!\",\n    \"tags\" : [\"fans\", \"football\", \"sports\"],\n    \"userId\": \"5fc5d1606dc8d47795782ad6\"\n    \n}"
+                },
+                "url": "http:\/\/localhost:3000\/articles\/5fc6482c491258796ecc7458"
+            },
+            "response": []
+        },
+        {
+            "name": "delete Article",
+            "_postman_id": "c313fb98-7d9d-4530-a660-daa19c909ecf",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "type": "text",
+                        "value": "application\/json"
+                    },
+                    {
+                        "key": "access-token",
+                        "type": "text",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": "http:\/\/localhost:3000\/articles\/5fc6503ddda8420697968c01"
+            },
+            "response": []
+        },
+        {
+            "name": "get Article by id",
+            "_postman_id": "0487088f-3564-4cd8-9f4d-2f12f567f37d",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": "http:\/\/localhost:3000\/articles\/5fc5d28586589279d215f9f4"
+            },
+            "response": []
+        },
+        {
+            "name": "Return all articles by Tags",
+            "_postman_id": "ab75c10a-d21b-474f-9931-d3496a274923",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application\/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "access-token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoIjp0cnVlLCJpYXQiOjE2MDY4Mjg4NTUsImV4cCI6MTYzODM2NDg1NX0.EvSr3gv8otvUkFjdjyTtU5A8g5nFZPi4ZRQ4GgBAmsw",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http:\/\/localhost:3000\/articles?tag=sports&tag=celebrities",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "articles"
+                    ],
+                    "query": [
+                        {
+                            "key": "tag",
+                            "value": "sports"
+                        },
+                        {
+                            "key": "tag",
+                            "value": "celebrities"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "protocolProfileBehavior": {}
+}
